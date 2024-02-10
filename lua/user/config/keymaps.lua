@@ -63,13 +63,12 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 --}}}
 
 -- Miscellaneous --{{{
-keymap("n", "<leader>j", "i<CR><ESC>", term_opts)  -- new line with current cursor
-keymap("i", "jk", "<ESC>", opts)                   -- Press jk fast to exit insert mode 
-keymap("n", "<c-u>", "viwU<esc>", opts)            -- to uppcase word 
-keymap("i", "<c-l>", "<del>", opts)                -- del
-keymap("n", "<c-a>", "gg0vG$", opts)               -- select all
-keymap("n", "<leader>/", "/\\v", opts)             -- search with very magic
-keymap("n", "<leader>nh", ":nohlsearch<cr>", opts) -- nohlsearch
+keymap("n", "<leader>j", "i<CR><ESC>", term_opts)      -- new line with current cursor
+keymap("i", "jk", "<ESC>", opts)                       -- Press jk fast to exit insert mode 
+keymap("i", "<c-l>", "<del>", opts)                    -- del
+keymap("n", "<c-a>", "gg0vG$", opts)                   -- select all
+keymap("n", "<leader>/", "/\\v", opts)                 -- search with very magic
+keymap("n", "<leader>nh", "<cmd>nohlsearch<cr>", opts) -- nohlsearch
 
 --}}}
 
