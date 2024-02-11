@@ -6,9 +6,12 @@ return {
         vim.g.loaded_netrwPlugin = 1
         require("nvim-tree").setup({
             filters = {
-                custom = {"^\\.git$"}
-            }
+                custom = { "^\\.git$" },
+            },
         })
-        vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<cr>", {silent = true})
+        vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", {
+            silent = true,
+            desc = "Toggle NvimTree",
+        })
     end,
 }

@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.keymap.set -- Shorten function name
-keymap({'n', 'v'}, "<Space>", "<Nop>", opts) --Remap space as leader key
+keymap({ "n", "v" }, "<Space>", "<Nop>", opts) --Remap space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -14,20 +14,20 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Remap for dealing with word wrap --{{{
-keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 --}}}
 
 -- Diagnostic keymaps -- {{{
-keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-keymap('n', '<leader>i', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+keymap("n", "<leader>i", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 --}}}
 
 -- open tempt.lua and source --{{{
-keymap("n", "<leader>ev", ":execute \"edit \" . stdpath('config') . '/lua/user/tempt.lua'<cr>", opts)
-keymap("n", "<leader>sv", ":source $MYVIMRC<cr>", opts)
+keymap("n", "<leader>ev", ":execute \"edit \" . stdpath('config') . '/lua/tempt.lua'<cr>", { noremap = true, silent = true , desc = "[E]dit tempt"})
+keymap("n", "<leader>sv", ":source $MYVIMRC<cr>", { noremap = true, silent = true , desc = "[S]source [V]imrc"})
 ---}}}
 
 -- round with ' " [ { < --{{{
@@ -39,8 +39,8 @@ keymap("v", "<leader><", "l<esc>`<i<<esc>`>a><esc>", opts)
 --}}}
 
 -- split window horizon above and vertical right --{{{
-keymap("n", "<leader>vh", ':execute "leftabove split " . bufname("#")<cr>', opts)
-keymap("n", "<leader>vv", ':execute "rightbelow vsplit " . bufname("#")<cr>', opts)
+keymap("n", "<leader>vh", ':execute "leftabove split " . bufname("#")<cr>', { noremap = true, silent = true , desc = "leftabove split" })
+keymap("n", "<leader>vv", ':execute "rightbelow vsplit " . bufname("#")<cr>', { noremap = true, silent = true , desc = "rightbelow split" })
 --}}}
 
 -- Better window navigation --{{{
@@ -75,12 +75,9 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 --}}}
 
 -- Miscellaneous --{{{
-keymap("n", "<leader>j", "i<CR><ESC>", term_opts)      -- new line with current cursor
-keymap("i", "jk", "<ESC>", opts)                       -- Press jk fast to exit insert mode 
-keymap("i", "<c-l>", "<del>", opts)                    -- del
-keymap("n", "<c-a>", "gg0vG$", opts)                   -- select all
-keymap("n", "<leader>/", "/\\v", opts)                 -- search with very magic
-keymap("n", "<leader>nh", "<cmd>nohlsearch<cr>", opts) -- nohlsearch
+keymap("n", "<leader>j", "i<CR><ESC>", { desc = "new line with current cursor" })
+keymap("i", "jk", "<ESC>", opts) -- Press jk fast to exit insert mode
+keymap("i", "<c-l>", "<del>", opts) -- del
+keymap("n", "<c-a>", "gg0vG$", opts) -- select all
 
 --}}}
-
