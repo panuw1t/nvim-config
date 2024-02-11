@@ -22,6 +22,4 @@ end
 
 -- Load main config
 require("config.lazy-nvim")
-vim.cmd([[execute "source " . stdpath('config') . "/lua/grep-operator.lua"]])
 vim.cmd([[execute "source " . stdpath('config') . "/lua/tempt.lua"]])
-print("init is source")

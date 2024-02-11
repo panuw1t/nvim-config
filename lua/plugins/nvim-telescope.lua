@@ -43,26 +43,6 @@ return {
 			"<cmd>Telescope help_tags<cr>",
 			desc = "[F]ind [H]elp Telescope",
 		},
-		{
-			"<leader>?",
-			"<cmd>Telescope oldfiles<cr>",
-			desc = "[?] Find recently opened files",
-		},
-		{
-			"<leader>fw",
-			"<cmd>Telescope grep_string<cr>",
-			desc = "[F]ind current [W]ord",
-		},
-		{
-			"<leader>fd",
-			"<cmd>Telescope diagnostics<cr>",
-			desc = "[F]ind [D]iagnostics",
-		},
-		{
-			"<leader>fr",
-			"<cmd>Telescope resume<cr>",
-			desc = "[F]ind [R]esume",
-		},
 	},
 	config = function()
 		-- [[ Configure Telescope ]]
@@ -137,5 +117,9 @@ return {
 		vim.keymap.set("n", "<leader>f/", telescope_live_grep_open_files, { desc = "[F]ind [/] in Open Files" })
 		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fG", "<cmd>LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
+		vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles<cr>", { desc = "[?] Find recently opened files" })
+		vim.keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { desc = "[F]ind current [W]ord" })
+		vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { desc = "[F]ind [D]iagnostics" })
+		vim.keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>", { desc = "[F]ind [R]esume" })
 	end,
 }
