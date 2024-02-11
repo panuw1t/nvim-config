@@ -30,18 +30,14 @@ vim.cmd([[ iabbrev waht what
 ]])
 -- }}}
 
--- comment (in progress) --{{{
-local function boy()
-    print(112)
-end
-
-autocmd({ "FileType" }, {
-    pattern = { "javascript" },
-    group = augroup,
-    callback = function(args)
-        keymap("n", "<c-_>", "I //", { buffer = args.buf }) -- <c-_> = <c-/>
-        keymap("n", "<localleader>p", boy, { buffer = args.buf })
-    end,
+-- [[ Highlight on yank ]] --{{{
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
 })
-
 --}}}
