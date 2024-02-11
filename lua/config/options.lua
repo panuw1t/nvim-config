@@ -5,7 +5,8 @@ opt.mouse = 'a'                       -- Enable mouse support
 opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
 opt.swapfile = false                  -- Don't use swapfile
 opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
--- opt.fileencoding = 'utf-8'            -- the encoding written to a file
+opt.undofile = true                    -- Save undo history
+opt.fileencoding = 'utf-8'            -- the encoding written to a file
 
 --}}}
 
@@ -51,5 +52,6 @@ opt.history = 100           -- Remember N lines in history
 opt.lazyredraw = true       -- Faster scrolling
 opt.synmaxcol = 240         -- Max column for syntax highlight
 opt.updatetime = 250        -- ms to wait for trigger an event
+opt.timeoutlen = 300        -- Decrease update time
 
 --}}}

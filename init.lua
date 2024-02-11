@@ -2,7 +2,7 @@ if vim.fn.has('nvim-0.8') == 0 then
     error('Need Neovim 0.8+ in order to use this config')
 end
 
-for _, cmd in ipairs({"git"}) do
+for _, cmd in ipairs({"git", "fd", "rg"}) do
     local name = type(cmd) == "string" and cmd or vim.inspect(cmd)
     local commands = type(cmd) == "string" and {cmd} or cmd
     ---@cast commands string[]
@@ -21,7 +21,7 @@ for _, cmd in ipairs({"git"}) do
 end
 
 -- Load main config
-require("user.config")
-vim.cmd([[execute "source " . stdpath('config') . "/lua/user/grep-operator.lua"]])
-vim.cmd([[execute "source " . stdpath('config') . "/lua/user/tempt.lua"]])
+require("config.lazy-nvim")
+vim.cmd([[execute "source " . stdpath('config') . "/lua/grep-operator.lua"]])
+vim.cmd([[execute "source " . stdpath('config') . "/lua/tempt.lua"]])
 print("init is source")

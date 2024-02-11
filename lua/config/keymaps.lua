@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.keymap.set -- Shorten function name
-keymap("", "<Space>", "<Nop>", opts) --Remap space as leader key
+keymap({'n', 'v'}, "<Space>", "<Nop>", opts) --Remap space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -12,6 +12,18 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+-- Remap for dealing with word wrap --{{{
+keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+--}}}
+
+-- Diagnostic keymaps -- {{{
+keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+keymap('n', '<leader>i', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+--}}}
 
 -- open tempt.lua and source --{{{
 keymap("n", "<leader>ev", ":execute \"edit \" . stdpath('config') . '/lua/user/tempt.lua'<cr>", opts)

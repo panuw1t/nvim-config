@@ -18,7 +18,7 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 -- build spec
 local plugins = {
     {
-        import = "user.plugins"
+        import = "plugins"
     },
 --   {
 --       import = "user.plugins.lsp"
@@ -34,6 +34,6 @@ local opts = {
 
 require("lazy").setup(plugins, opts)
 
-require("user.config.options")
-require("user.config.keymaps")
-require("user.config.autocmds")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
