@@ -16,4 +16,11 @@ return {
 		event = "InsertEnter",
 		opts = {} -- this is equalent to setup({}) function
 	},
+	-- show diagnostics on top-right corner only when cursor is poisition.
+	{
+		'dgagn/diagflow.nvim',
+		-- event = 'LspAttach', This is what I use personnally and it works great
+		event = 'LspAttach',
+		opts = {}
+	}
 }
