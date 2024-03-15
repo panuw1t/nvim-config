@@ -13,21 +13,15 @@ vim.g.mapleader = " "
 keymap("n", "<leader>ww", ":match Error /\\v +$/<cr>", opts)
 keymap("n", "<leader>we", ":match none<cr>", opts)
 
+-- visual Don't lose selection when shifting sidewards
+keymap("x", "<", "<gv", opts)
+keymap("x", ">", ">gv", opts)
+
 -- }}}
 
 -- abbreviate ---------------------------- {{{
 vim.cmd([[ iabbrev @@ jonh2544za@gmail.com
     iabbrev ccopy copyright 2024 panuvity sreudomdetsakull, all rights reserved.
-]])
--- }}}
-
--- autocmd ------------------------------ {{{
-vim.cmd([[
-  augroup keymap_boy
-    autocmd!
-    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
-  augroup END
 ]])
 -- }}}
 

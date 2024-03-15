@@ -30,14 +30,6 @@ keymap("n", "<leader>ev", ":execute \"edit \" . stdpath('config') . '/lua/tempt.
 keymap("n", "<leader>sv", ":source $MYVIMRC<cr>", { noremap = true, silent = true , desc = "[S]source [V]imrc"})
 ---}}}
 
--- round with ' " [ { < --{{{
-keymap("v", "<leader>'", "l<esc>`<i'<esc>`>a'<esc>", opts)
-keymap("v", '<leader>"', 'l<esc>`<i"<esc>`>a"<esc>', opts)
-keymap("v", "<leader>[", "l<esc>`<i[<esc>`>a]<esc>", opts)
-keymap("v", "<leader>{", "l<esc>`<i{<esc>`>a}<esc>", opts)
-keymap("v", "<leader><", "l<esc>`<i<<esc>`>a><esc>", opts)
---}}}
-
 -- split window horizon above and vertical right --{{{
 keymap("n", "<leader>vh", ':execute "leftabove split " . bufname("#")<cr>', { noremap = true, silent = true , desc = "leftabove split" })
 keymap("n", "<leader>vv", ':execute "rightbelow vsplit " . bufname("#")<cr>', { noremap = true, silent = true , desc = "rightbelow split" })

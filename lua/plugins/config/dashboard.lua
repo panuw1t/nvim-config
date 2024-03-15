@@ -21,6 +21,5 @@ dashboard.section.buttons.val = {
     dashboard.button('q', '󰅚  Quit', '<cmd>qa<CR>'),
 }
 
-
 dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)

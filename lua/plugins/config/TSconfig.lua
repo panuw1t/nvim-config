@@ -62,7 +62,7 @@ vim.defer_fn(function()
                     [']]'] = '@class.outer',
                 },
                 goto_next_end = {
-                    [']m'] = '@function.outer',
+                    [']M'] = '@function.outer',
                     [']['] = '@class.outer',
                 },
                 goto_previous_start = {
@@ -70,7 +70,7 @@ vim.defer_fn(function()
                     ['[['] = '@class.outer',
                 },
                 goto_previous_end = {
-                    ['[m'] = '@function.outer',
+                    ['[M'] = '@function.outer',
                     ['[]'] = '@class.outer',
                 },
             },

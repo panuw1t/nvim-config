@@ -1,28 +1,25 @@
-local augroup = vim.api.nvim_create_augroup("core", { clear = true }) -- Create/get autocommand group
-local autocmd = vim.api.nvim_create_autocmd                           -- Create autocommand
+local augroup = vim.api.nvim_create_augroup('core', { clear = true }) -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set                                         -- Shorten function name
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+local keymap = vim.keymap.set -- Shorten function name
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- general -- {{{
-autocmd({ "FileType" }, {
-    pattern = { "lua" },
+autocmd({ 'FileType' }, {
+    pattern = { 'lua' },
     group = augroup,
-    command = ":setlocal foldmethod=marker", -- set fold for lua file
+    command = ':setlocal foldmethod=marker', -- set fold for lua file
 })
 
---}}}
-
--- quickfix window --- {{{
-autocmd({ "QuickFixCmdPost" }, {
+autocmd({ 'FileType' }, {
+    pattern = { 'help' },
     group = augroup,
-    callback = function ()
-        print(1123)
+    callback = function()
+        keymap('n', 'q', ':bd<cr>', { buffer = true })
     end,
 })
-
--- }}}
+--}}}
 
 -- abbreviate correct wrong word ------------------------------ {{{
 vim.cmd([[ iabbrev waht what
@@ -34,10 +31,10 @@ vim.cmd([[ iabbrev waht what
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
 --}}}
